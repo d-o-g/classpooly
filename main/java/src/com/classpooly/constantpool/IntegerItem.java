@@ -12,11 +12,11 @@ import java.io.IOException;
  */
 public class IntegerItem extends Item<Integer> {
 
-    public int value;
+    private int value;
 
     @Override
     public void read(DataInputStream stream) throws IOException {
-
+        value = stream.readInt();
     }
 
     @Override

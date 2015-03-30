@@ -1,5 +1,7 @@
 package com.classpooly.structure;
 
+import com.classpooly.constantpool.attribute.Attribute;
+
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,6 +24,6 @@ public class BytecodeField extends BytecodeMember {
         super.attributes         = new ArrayList<>(attributeCount);
         System.out.println("attribrute count: " + attributeCount);
         for (int i = 0; i < attributeCount; i++)
-            super.attributes.add(new Attribute(stream));
+            super.attributes.add(Attribute.get("", stream));
     }
 }
