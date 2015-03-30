@@ -3,8 +3,8 @@
 ### Contribution guidelines ###
 
 * Writing tests
-* Code review
-* Other guidelines
+* Writing clean code
+* Improving code
 
 ### Who do I talk to? ###
 
