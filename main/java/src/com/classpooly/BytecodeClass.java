@@ -37,7 +37,7 @@ public class BytecodeClass {
         final int fieldCount    =  stream.readUnsignedShort();
         this.fields             = new ArrayList<>(fieldCount);
         for (int i = 0; i < fieldCount; i++)
-            this.fields.add(new BytecodeField(stream));
+            this.fields.add(new BytecodeField(stream, this));
         final int methodCount   =  stream.readUnsignedShort();
     }
 }
