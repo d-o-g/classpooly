@@ -3,7 +3,8 @@ package com.classpooly.classpool;
 import java.io.DataInputStream;
 import java.io.IOException;
 
-public abstract class Item {
+public abstract class Item<T> {
+
 	public static final byte ITEM_UTF_8 = 0x1;
 	public static final byte ITEM_INTEGER = 0x3;
 	public static final byte ITEM_FLOAT = 0x4;
@@ -20,4 +21,5 @@ public abstract class Item {
 	
 	public abstract byte getItemType();
 
+	public abstract T getValue();
 }
