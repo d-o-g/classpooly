@@ -45,5 +45,7 @@ public class BytecodeMember {
         public Attribute(final DataInputStream stream) throws IOException {
             this.nameIndex = stream.readUnsignedShort();
         }
+
+        public void read(final DataInputStream stream) throws IOException {}
     }
 }
