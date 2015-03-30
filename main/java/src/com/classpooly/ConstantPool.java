@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.classpooly.classpool.Item;
+import com.classpooly.classpool.UTF8Item;
+
 /**
  * Project: ClassPooly
  * Date: 30-03-2015
@@ -21,18 +24,26 @@ public class ConstantPool {
         this.items = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
             final byte info = (byte) stream.readUnsignedByte();
-            final Item item = Item.get(info);
+            final Item item = getItem(info);
             if (item == null)
                 continue;
             //throw new InternalError("unknown_item: " + info);
-            if (item == Item.DOUBLE || item == Item.LONG)
+            if (item.getItemType() == Item.ITEM_DOUBLE || item.getItemType() == Item.ITEM_LONG)
                 i++; //2w
             item.read(stream); //TODO
             items.add(i, item);
         }
     }
+	
+	private Item getItem(byte item) {
+		switch(item) {
+		case Item.ITEM_UTF_8:
+			return new UTF8Item();
+		}
+		return null;
+	}
 
-    public enum Item {
+    /*public enum Item {
 
         UTF8(1) {
             @Override
@@ -154,5 +165,5 @@ public class ConstantPool {
         }
 
         public abstract void read(final DataInputStream stream) throws IOException;
-    }
+    }*/
 }

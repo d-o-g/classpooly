@@ -19,6 +19,7 @@ public class BytecodeField extends BytecodeMember {
         final int desc           =      stream.readUnsignedShort();
         final int attributeCount =      stream.readUnsignedShort();
         super.attributes         = new ArrayList<>(attributeCount);
+        System.out.println("attribrute count: " + attributeCount);
         for (int i = 0; i < attributeCount; i++)
             super.attributes.add(new Attribute(stream));
     }
