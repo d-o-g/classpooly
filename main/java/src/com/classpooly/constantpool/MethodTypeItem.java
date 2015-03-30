@@ -6,26 +6,26 @@ import java.io.IOException;
 /**
  * Project: classpooly
  * Date: 30-03-2015
- * Time: 14:02
+ * Time: 16:26
  * Created by Dogerina.
  * Copyright under GPL license by Dogerina.
  */
-public class DoubleItem extends Item<Double> {
+public class MethodTypeItem extends Item<Integer> {
 
-    private double value;
+    private Integer value;
 
     @Override
     public void read(DataInputStream stream) throws IOException {
-        this.value = stream.readDouble();
+        this.value = stream.readUnsignedShort();
     }
 
     @Override
     public byte getType() {
-        return ITEM_LONG;
+        return ITEM_METHOD_TYPE;
     }
 
     @Override
-    public Double getValue() {
+    public Integer getValue() {
         return value;
     }
 }

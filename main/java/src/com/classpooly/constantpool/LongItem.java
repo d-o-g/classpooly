@@ -20,7 +20,7 @@ public class LongItem extends Item<Long> {
     }
 
     @Override
-    public byte getItemType() {
+    public byte getType() {
         return ITEM_LONG;
     }
 

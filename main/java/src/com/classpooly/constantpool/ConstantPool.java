@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.classpooly.constantpool.Item;
-import com.classpooly.constantpool.UTF8Item;
-
 /**
  * Project: ClassPooly
  * Date: 30-03-2015
@@ -17,7 +14,7 @@ import com.classpooly.constantpool.UTF8Item;
  */
 public class ConstantPool {
 
-    public final List<Item> items;
+    private final List<Item> items;
 
     public ConstantPool(final DataInputStream stream) throws IOException {
         final int size = stream.readUnsignedShort();
@@ -27,21 +24,44 @@ public class ConstantPool {
             final Item item = getItem(info);
             if (item == null)
                 continue;
-            //throw new InternalError("unknown_item: " + info);
-            if (item.getItemType() == Item.ITEM_DOUBLE || item.getItemType() == Item.ITEM_LONG)
+            if (item.getType() == Item.ITEM_DOUBLE || item.getType() == Item.ITEM_LONG)
                 i++; //2w
             item.read(stream); //TODO
             items.add(i, item);
         }
     }
-	
-	private Item getItem(byte item) {
-		switch(item) {
-		case Item.ITEM_UTF_8:
-			return new UTF8Item();
-		}
-		return null;
-	}
+
+    public Item getItemAt(final int index) {
+        return index >= 0 && index < items.size() ? items.get(index) : null;
+    }
+
+    private Item getItem(byte item) {
+        switch (item) {
+            case Item.ITEM_UTF_8:
+                return new UTF8Item();
+            case Item.ITEM_DOUBLE:
+                return new DoubleItem();
+            case Item.ITEM_FLOAT:
+                return new FloatItem();
+            case Item.ITEM_INTEGER:
+                return new IntegerItem();
+            case Item.ITEM_LONG:
+                return new LongItem();
+            case Item.ITEM_CLASS_REF:
+                return new ClassRefItem();
+            case Item.ITEM_STRING_REF:
+                return new StringItem();
+            case Item.ITEM_FIELD_REF:
+                return new FieldRefItem();
+            case Item.ITEM_METHOD_REF:
+                return new MethodRefItem();
+            case Item.ITEM_NAME_TYPE_REF:
+                return new NameAndTypeItem();
+            default: {
+                throw new InternalError("unknown_item: " + item);
+            }
+        }
+    }
 
     /*public enum Item {
 

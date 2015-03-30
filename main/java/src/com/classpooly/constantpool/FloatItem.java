@@ -20,7 +20,7 @@ public class FloatItem extends Item<Float> {
     }
 
     @Override
-    public byte getItemType() {
+    public byte getType() {
         return ITEM_FLOAT;
     }
 

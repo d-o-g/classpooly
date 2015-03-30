@@ -13,7 +13,7 @@ public class UTF8Item extends Item<String> {
 	}
 
 	@Override
-	public byte getItemType() {
+	public byte getType() {
 		return ITEM_UTF_8;
 	}
 
