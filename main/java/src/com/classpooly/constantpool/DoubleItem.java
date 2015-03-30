@@ -1,4 +1,4 @@
-package com.classpooly.classpool;
+package com.classpooly.constantpool;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -6,17 +6,17 @@ import java.io.IOException;
 /**
  * Project: classpooly
  * Date: 30-03-2015
- * Time: 14:01
+ * Time: 14:02
  * Created by Dogerina.
  * Copyright under GPL license by Dogerina.
  */
-public class LongItem extends Item<Long> {
+public class DoubleItem extends Item<Double> {
 
-    private long value;
+    private double value;
 
     @Override
     public void read(DataInputStream stream) throws IOException {
-        this.value = stream.readLong();
+        this.value = stream.readDouble();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class LongItem extends Item<Long> {
     }
 
     @Override
-    public Long getValue() {
+    public Double getValue() {
         return value;
     }
 }

@@ -1,5 +1,6 @@
-package com.classpooly;
+package com.classpooly.structure;
 
+import com.classpooly.constantpool.ConstantPool;
 import com.classpooly.exceptions.BytecodeClassFormatError;
 
 import java.io.*;

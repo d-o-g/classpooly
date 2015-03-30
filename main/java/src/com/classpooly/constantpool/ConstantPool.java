@@ -1,12 +1,12 @@
-package com.classpooly;
+package com.classpooly.constantpool;
 
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.classpooly.classpool.Item;
-import com.classpooly.classpool.UTF8Item;
+import com.classpooly.constantpool.Item;
+import com.classpooly.constantpool.UTF8Item;
 
 /**
  * Project: ClassPooly

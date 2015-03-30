@@ -1,4 +1,4 @@
-package com.classpooly;
+package com.classpooly.structure;
 
 import java.io.DataInputStream;
 import java.io.IOException;

@@ -1,6 +1,6 @@
 package com.classpooly.util;
 
-import com.classpooly.BytecodeClass;
+import com.classpooly.structure.BytecodeClass;
 
 import java.io.*;
 import java.util.HashMap;

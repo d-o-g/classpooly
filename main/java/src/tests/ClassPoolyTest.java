@@ -4,7 +4,7 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import com.classpooly.BytecodeClass;
+import com.classpooly.structure.BytecodeClass;
 
 public class ClassPoolyTest {
 	
