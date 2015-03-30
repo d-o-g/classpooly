@@ -2,8 +2,7 @@ package com.classpooly;
 
 import com.classpooly.exceptions.BytecodeClassFormatError;
 
-import java.io.DataInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +36,11 @@ public class BytecodeClass {
         final int fieldCount    =  stream.readUnsignedShort();
         this.fields             = new ArrayList<>(fieldCount);
         for (int i = 0; i < fieldCount; i++)
-            this.fields.add(new BytecodeField(stream));
+            this.fields.add(new BytecodeField(stream, this));
         final int methodCount   =  stream.readUnsignedShort();
+    }
+
+    public BytecodeClass(final byte[] buffer) throws IOException {
+        this(new DataInputStream(new ByteArrayInputStream(buffer)));
     }
 }

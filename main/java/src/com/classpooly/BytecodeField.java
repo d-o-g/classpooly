@@ -13,10 +13,11 @@ import java.util.ArrayList;
  */
 public class BytecodeField extends BytecodeMember {
 
-    public BytecodeField(final DataInputStream stream) throws IOException {
+    public BytecodeField(final DataInputStream stream, final BytecodeClass owner) throws IOException {
+        super.owner              =                           owner;
         super.access             =      stream.readUnsignedShort();
-        final int name           =      stream.readUnsignedShort();
-        final int desc           =      stream.readUnsignedShort();
+        final int nameIndex      =      stream.readUnsignedShort();
+        final int descIndex      =      stream.readUnsignedShort();
         final int attributeCount =      stream.readUnsignedShort();
         super.attributes         = new ArrayList<>(attributeCount);
         System.out.println("attribrute count: " + attributeCount);
